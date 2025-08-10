@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BBC v2 — Official Rules (2025)</title>
+  <meta name="description" content="Official rules for the BBC v2 fantasy football league: roster, draft, scoring, waivers, playoffs, and policies." />
+  <style>
+    :root {
+      --bg: #0b0c10;
+      --panel: #111318;
+      --text: #e8eef4;
+      --muted: #a0afc0;
+      --accent: #56ccf2;
+      --accent-2: #7ed957;
+      --danger: #ff6b6b;
+      --warning: #ffd166;
+      --code: #0a2538;
+      --border: #1d2330;
+      --radius: 14px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    @media (prefers-color-scheme: light) {
+      :root { --bg:#f8fafc; --panel:#ffffff; --text:#0f172a; --muted:#475569; --accent:#0ea5e9; --accent-2:#059669; --code:#eef6ff; --border:#e5e7eb; }
+    }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji"; background:var(--bg); color:var(--text); line-height:1.6; }
+    header { position: sticky; top:0; z-index:50; backdrop-filter: blur(10px); background: color-mix(in srgb, var(--bg) 80%, transparent); border-bottom:1px solid var(--border); }
+    .container { max-width: 1100px; margin: 0 auto; padding: 1.2rem; }
+    .hero { padding: 2rem 0 1rem; display:flex; gap:1rem; align-items:center; justify-content:space-between; }
+    .title { font-size: clamp(1.5rem, 3.5vw, 2.4rem); margin:0; letter-spacing:.2px; }
+    .subtitle { margin:.25rem 0 0; color:var(--muted); font-size:.98rem; }
+    nav.toc { position: sticky; top:68px; align-self:flex-start; background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); padding:1rem; box-shadow:var(--shadow); }
+    .layout { display:grid; grid-template-columns: 280px 1fr; gap: 1.25rem; margin-top: 1rem; }
+    @media (max-width: 960px) { .layout { grid-template-columns: 1fr; } nav.toc { position: static; } }
+    .toc h3 { margin:.25rem 0 .5rem; font-size: .95rem; text-transform: uppercase; letter-spacing:.08em; color:var(--muted); }
+    .toc a { display:block; padding:.5rem .6rem; margin:.12rem 0; border-radius:10px; color:var(--text); text-decoration:none; border:1px solid transparent; }
+    .toc a:hover { background: color-mix(in srgb, var(--panel) 70%, var(--accent) 30%); border-color: var(--border); }
+    section.card { background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); padding:1.2rem; box-shadow:var(--shadow); scroll-margin-top: 84px; }
+    section.card h2 { margin-top:0; font-size: clamp(1.25rem, 2.5vw, 1.6rem); }
+    .grid { display:grid; gap:.8rem; }
+    .two { grid-template-columns: 1fr 1fr; }
+    .three { grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 800px) { .two, .three { grid-template-columns: 1fr; } }
+    table { width:100%; border-collapse: collapse; overflow: hidden; border-radius:12px; border:1px solid var(--border); background:linear-gradient(180deg, color-mix(in srgb, var(--panel) 92%, black 8%), var(--panel)); }
+    th, td { padding:.7rem .8rem; text-align:left; border-bottom:1px solid var(--border); vertical-align: top; }
+    th { color:var(--muted); font-weight:600; font-size:.9rem; }
+    tr:last-child td { border-bottom:none; }
+    code, pre { background:var(--code); border:1px solid var(--border); border-radius:10px; padding:.2rem .4rem; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    pre { padding: .9rem; overflow:auto; }
+    .badge { display:inline-flex; align-items:center; gap:.35rem; padding:.28rem .55rem; border-radius:999px; border:1px solid var(--border); background: color-mix(in srgb, var(--panel) 85%, var(--accent) 15%); font-size:.78rem; }
+    .callout { border-left: 4px solid var(--accent); background: color-mix(in srgb, var(--panel) 92%, var(--accent) 8%); padding: .9rem 1rem; border-radius: 10px; }
+    footer { text-align:center; color:var(--muted); padding: 2rem 0 3rem; }
+    .right { text-align:right; }
+    .muted { color:var(--muted); }
+    .pill { display:inline-block; background: color-mix(in srgb, var(--accent-2) 18%, var(--panel)); border:1px solid var(--border); border-radius:999px; padding:.2rem .5rem; font-size:.8rem; }
+    .btn { display:inline-flex; align-items:center; gap:.5rem; background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 90%, white 10%), var(--accent)); color:#001018; border:none; padding:.6rem .9rem; border-radius:12px; text-decoration:none; font-weight:600; box-shadow: 0 6px 16px color-mix(in srgb, var(--accent) 40%, black); }
+    .btn:hover{ filter:brightness(1.05); }
+    .rule-kv { display:grid; grid-template-columns: 220px 1fr; gap:.6rem .9rem; }
+    @media (max-width: 700px) { .rule-kv { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container hero">
+      <div>
+        <h1 class="title">BBC v2 — Official Rules</h1>
+        <p class="subtitle">Season: <strong>2025-2026</strong> • Version <span class="pill">1.0</span></p>
+      </div>
+      <a class="btn" href="#change-log" title="Skip to change log">Change Log</a>
+    </div>
+  </header>
+
+  <div class="container layout">
+    <nav class="toc">
+      <h3>Contents</h3>
+      <a href="#overview">Overview</a>
+      <a href="#roster">Roster</a>
+      <a href="#draft">Draft</a>
+      <a href="#scoring">Scoring</a>
+      <a href="#kickers-defense">Kickers & Defense</a>
+      <a href="#waivers">Waivers & Transactions</a>
+      <a href="#playoffs">Playoffs</a>
+      <a href="#policies">League Policies</a>
+      <a href="#variants">Optional Variants</a>
+      <a href="#import">One‑Page Import Summary</a>
+      <a href="#change-log">Change Log</a>
+    </nav>
+
+    <main class="grid" style="gap:1.25rem;">
+
+      <section id="overview" class="card">
+        <h2>Overview</h2>
+        <div class="callout">
+          <strong>League Type:</strong> Friends‑only, competitive redraft with modern defaults. Money (if any) handled off‑platform.
+        </div>
+        <div class="rule-kv" style="margin-top:1rem;">
+          <div class="muted">Teams</div><div><strong>12</strong></div>
+          <div class="muted">Platform</div><div><strong>Sleeper</strong> (recommended) • Alternatives: Yahoo, ESPN, Fantrax, NFL Fantasy</div>
+          <div class="muted">Schedule</div><div>Regular Season: NFL Weeks 1–14 • Playoffs: Weeks 15–17</div>
+          <div class="muted">Time Zone</div><div>All deadlines use the commissioner’s local time unless specified</div>
+          <div class="muted">Communication</div><div>Primary in‑app chat + group chat (out‑of‑band)</div>
+        </div>
+      </section>
+
+      <section id="roster" class="card">
+        <h2>Roster Settings</h2>
+        <table>
+          <thead><tr><th>Slot</th><th>Count</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>QB</td><td>1</td><td>Single QB; consider Superflex variant below</td></tr>
+            <tr><td>RB</td><td>2</td><td>Scarcity is a feature</td></tr>
+            <tr><td>WR</td><td>2</td><td>Consider 3 WR if you want deeper starters</td></tr>
+            <tr><td>TE</td><td>1</td><td>TE Premium optional (see variants)</td></tr>
+            <tr><td>FLEX (RB/WR/TE)</td><td>1–2</td><td>Default 1; competitive leagues often run 2</td></tr>
+            <tr><td>K</td><td>1</td><td>Enabled this season</td></tr>
+            <tr><td>DEF/ST</td><td>1</td><td>Enabled this season</td></tr>
+            <tr><td>Bench</td><td>6–7</td><td>Seven recommended for active waivers</td></tr>
+            <tr><td>IR</td><td>0</td><td>Disabled this season</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="draft" class="card">
+        <h2>Draft</h2>
+        <ul>
+          <li><strong>Format:</strong> Snake draft (randomized order). Consider Third‑Round Reversal in 12‑team leagues.</li>
+          <li><strong>Clock:</strong> 60–90s per pick in live draft.</li>
+          <li><strong>Keepers:</strong> Off by default. Commissioners may propose keeper rules pre‑season.</li>
+          <li><strong>Dynasty/Taxi:</strong> Not applicable for redraft. If enabled, document separately.</li>
+        </ul>
+      </section>
+
+      <section id="scoring" class="card">
+        <h2>Scoring (PPR Default)</h2>
+        <div class="grid two">
+          <div>
+            <h3>Offense</h3>
+            <table>
+              <thead><tr><th>Event</th><th>Points</th><th>Notes</th></tr></thead>
+              <tbody>
+                <tr><td>Passing Yards</td><td>+0.04 / yd</td><td>1 pt per 25 yards</td></tr>
+                <tr><td>Passing TD</td><td>+4</td><td>Some leagues use +6</td></tr>
+                <tr><td>Interception (thrown)</td><td>−2</td><td>Turnover penalty</td></tr>
+                <tr><td>Rushing Yards</td><td>+0.1 / yd</td><td>1 pt per 10 yards</td></tr>
+                <tr><td>Rushing TD</td><td>+6</td><td>Standard</td></tr>
+                <tr><td>Reception</td><td>+1.0</td><td>Half PPR variant below</td></tr>
+                <tr><td>Receiving Yards</td><td>+0.1 / yd</td><td>1 pt per 10 yards</td></tr>
+                <tr><td>Receiving TD</td><td>+6</td><td>Standard</td></tr>
+                <tr><td>Fumble Lost</td><td>−2</td><td>Ball security matters</td></tr>
+                <tr><td>Two‑Point Conversion</td><td>+2</td><td>Pass, rush, or catch</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3>Half‑PPR Adjustments</h3>
+            <ul>
+              <li>Reception: <strong>+0.5</strong> instead of +1.0.</li>
+              <li>Optional: Increase receiving yards to 1.1x if you want WRs to retain value.</li>
+            </ul>
+            <h3 style="margin-top:1rem;">Bonuses (Optional)</h3>
+            <ul>
+              <li>100+ Rush/Rec yards: +3 bonus</li>
+              <li>300+ Passing yards: +3 bonus</li>
+              <li>40+ yard TD (any): +1 bonus</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="kickers-defense" class="card">
+        <h2>Kickers & Defense (if enabled)</h2>
+        <div class="grid two">
+          <div>
+            <h3>Kickers</h3>
+            <table>
+              <thead><tr><th>Event</th><th>Points</th></tr></thead>
+              <tbody>
+                <tr><td>FG 0–39 yds</td><td>+3</td></tr>
+                <tr><td>FG 40–49 yds</td><td>+4</td></tr>
+                <tr><td>FG 50+ yds</td><td>+5</td></tr>
+                <tr><td>PAT made</td><td>+1</td></tr>
+                <tr><td>Missed FG or PAT</td><td>−1</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3>Team Defense / Special Teams</h3>
+            <table>
+              <thead><tr><th>Event</th><th>Points</th></tr></thead>
+              <tbody>
+                <tr><td>Points Allowed: 0</td><td>+10</td></tr>
+                <tr><td>1–6</td><td>+7</td></tr>
+                <tr><td>7–13</td><td>+4</td></tr>
+                <tr><td>14–20</td><td>+1</td></tr>
+                <tr><td>21–27</td><td>0</td></tr>
+                <tr><td>28–34</td><td>−1</td></tr>
+                <tr><td>35+</td><td>−3</td></tr>
+                <tr><td>Sack</td><td>+1</td></tr>
+                <tr><td>Interception / Fumble Recovery</td><td>+2</td></tr>
+                <tr><td>Def/ST TD</td><td>+6</td></tr>
+                <tr><td>Safety</td><td>+2</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="muted" style="margin-top:.6rem;">Competitive leagues often remove K and DEF/ST entirely and replace them with another FLEX.</p>
+      </section>
+
+      <section id="waivers" class="card">
+        <h2>Waivers & Transactions</h2>
+        <ul>
+          <li><strong>Waiver Type:</strong> FAAB (Free Agent Acquisition Budget)</li>
+          <li><strong>Budget:</strong> $200 (virtual). Bids are blind; highest bid wins. $0 bids allowed.</li>
+          <li><strong>Processing:</strong> Primary run: <em>Wednesday 10:00 AM</em>. Secondary runs daily at 10:00 AM for dropped players.</li>
+          <li><strong>Add/Drop:</strong> Continuous waivers during the week; post‑waiver players become free agents until game lock.</li>
+          <li><strong>Trades:</strong> Deadline at NFL Week 11 end. Review by commissioner; veto for collusion only.</li>
+          <li><strong>IR:</strong> Disabled for the 2025–2026 season.</li>
+        </ul>
+      </section>
+
+      <section id="playoffs" class="card">
+        <h2>Playoffs</h2>
+        <ul>
+          <li><strong>Teams:</strong> 6 of 12 qualify (Seeds 1–6)</li>
+          <li><strong>Byes:</strong> Top 2 seeds receive first‑round byes</li>
+          <li><strong>Weeks:</strong> NFL Weeks 15–17</li>
+          <li><strong>Seeding:</strong> Record → Points For → Head‑to‑Head</li>
+          <li><strong>Toilet Bowl:</strong> Optional consolation bracket for non‑playoff teams</li>
+          <li><strong>Scheduling:</strong> No Week 18 matchups (rest risks)</li>
+        </ul>
+      </section>
+
+      <section id="policies" class="card">
+        <h2>League Policies</h2>
+        <ul>
+          <li><strong>Sportsmanship:</strong> Trash talk encouraged within reason; hate speech and personal attacks are not tolerated.</li>
+          <li><strong>Lineup Deadlines:</strong> Player spots lock at individual game kickoff.</li>
+          <li><strong>Inactive Managers:</strong> Commissioner may set a fair lineup if two consecutive weeks are neglected.</li>
+          <li><strong>Rule Changes:</strong> Off‑season voting, simple majority unless otherwise stated. In‑season changes require 2/3 and cannot affect prior results.</li>
+          <li><strong>Money:</strong> Any buy‑ins/payouts handled off‑platform between members.</li>
+          <li><strong>Ties:</strong> Regular season ties stand. Playoff ties broken by bench points, then higher seed.</li>
+        </ul>
+      </section>
+
+      <section id="variants" class="card">
+        <h2>Optional Variants (Commissioner Picks)</h2>
+        <div class="grid two">
+          <div>
+            <h3>Superflex</h3>
+            <p>Replace one FLEX with a <strong>Superflex (QB/RB/WR/TE)</strong> to increase QB value and draft diversity.</p>
+            <h3>TE Premium</h3>
+            <p>Set <strong>TE receptions = +1.5</strong> (others remain at +1.0) to elevate mid‑tier TEs.</p>
+            <h3>No K / No DEF</h3>
+            <p>Remove both and add <strong>+1 FLEX</strong> (or two) for more skill‑position strategy.</p>
+          </div>
+          <div>
+            <h3>Bonuses</h3>
+            <ul>
+              <li>100+ rush/rec yards: +3</li>
+              <li>300+ pass yards: +3</li>
+              <li>40+ yard TD: +1</li>
+            </ul>
+            <h3>Third‑Round Reversal</h3>
+            <p>For 12+ teams, consider TRR to balance early draft position edge.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="import" class="card">
+        <h2>One‑Page Import Summary</h2>
+        <p class="muted">Use this for quick setup on Sleeper/Yahoo/ESPN.</p>
+<pre><code>{
+  "teams": 12,
+  "schedule": { "regular_weeks": "1-14", "playoffs": "15-17" },
+  "roster": {
+    "QB": 1, "RB": 2, "WR": 2, "TE": 1,
+    "FLEX": 2, "K": 1, "DEF": 1, "BENCH": 7, "IR": 0
+  },
+  "scoring": {
+    "ppr": 1.0,
+    "offense": {
+      "pass_yd": 0.04, "pass_td": 4, "int": -2,
+      "rush_yd": 0.1, "rush_td": 6,
+      "rec": 1.0, "rec_yd": 0.1, "rec_td": 6,
+      "fum_lost": -2, "two_pt": 2
+    },
+    "kicker": {"fg_0_39": 3, "fg_40_49": 4, "fg_50": 5, "pat": 1, "miss": -1},
+    "dst": {
+      "pa_tiers": [[0,10],[6,7],[13,4],[20,1],[27,0],[34,-1],[99,-3]],
+      "sack": 1, "takeaway": 2, "td": 6, "safety": 2
+    }
+  },
+  "waivers": { "type": "FAAB", "budget": 200, "runs": ["Wed 10:00"], "$0_bids": true },
+  "trades": { "deadline_week": 11, "review": "commish", "veto_only": "collusion" },
+  "tie_breakers": ["points_for", "h2h"],
+  "playoffs": { "teams": 6, "byes": 2, "toilet_bowl": true }
+}
+</code></pre>
+      </section>
+
+      <section id="change-log" class="card">
+        <h2>Change Log</h2>
+        <ul>
+          <li><strong>2025‑08‑10:</strong> Initial ruleset published.</li>
+        </ul>
+        <p class="muted">Edit the placeholders <code>BBC v2</code>, <code>2025-2026</code>, and <code>1.0</code> in the &lt;title&gt; and header.</p>
+      </section>
+
+    </main>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> BBC v2. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Lightweight UX niceties
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scroll for internal links
+    const links = document.querySelectorAll('a[href^="#"]');
+    for (const a of links) {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if (el) {
+          e.preventDefault();
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          history.replaceState(null, '', '#' + id);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
