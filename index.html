@@ -59,7 +59,7 @@
   <header>
     <div class="container hero">
       <div>
-        <h1 class="title">BBC v2 — Official Rules (PROPOSAL - Request Changes, Don't Bitch)</Click></h1>
+        <h1 class="title">BBC v2 — Official Rules (PROPOSAL - Request Changes, Don't Bitch)</h1>
         <p class="subtitle">Season: <strong>2025–2026</strong> • Version <span class="pill">1.0</span></p>
       </div>
       <a class="btn" href="#change-log" title="Skip to change log">Change Log</a>
@@ -347,17 +347,24 @@
       });
     }
 
-    // Wire up Request Changes links to Google Form with rule prefill via query param
-    const FORM_URL = 'https://forms.gle/kBg9DWo8D4HimUY67';
-    function setRuleLink(el, ruleName){
-      el.setAttribute('href', FORM_URL + '?rule=' + encodeURIComponent(ruleName));
-      el.setAttribute('target', '_blank');
-      el.setAttribute('rel', 'noopener');
+    // Wire up "Request Changes" links to Google Form, prefilling RULE only
+    const FORM_BASE = 'https://docs.google.com/forms/d/e/1FAIpQLSc6Jt7Z9dJfqyFptQoiMgCEmBKuhfVfDQ4iLP2U2-qHdjAyqg/viewform';
+    const ENTRY_RULE = 'entry.977139358';
+
+    function makeFormUrl(ruleName) {
+      const params = new URLSearchParams({ usp: 'pp_url' });
+      params.set(ENTRY_RULE, ruleName);
+      params.set('t', String(Date.now())); // cache-buster
+      return `${FORM_BASE}?${params.toString()}`;
     }
+
     document.querySelectorAll('[data-rule-link]').forEach(link => {
       const container = link.closest('[data-rule]') || link.parentElement;
       const ruleName = container?.getAttribute('data-rule') || link.textContent.trim() || 'Unnamed Rule';
-      setRuleLink(link, ruleName);
+      const url = makeFormUrl(ruleName);
+      link.setAttribute('href', url);
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener');
     });
   </script>
 </body>
