@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BBC v2 — Official Rules (2025)</title>
+  <title>BBC v2 — Official Rules (2025-2026)</title>
   <meta name="description" content="Official rules for the BBC v2 fantasy football league: roster, draft, scoring, waivers, playoffs, and policies." />
   <style>
     :root {
@@ -37,7 +37,7 @@
     .toc a { display:block; padding:.5rem .6rem; margin:.12rem 0; border-radius:10px; color:var(--text); text-decoration:none; border:1px solid transparent; }
     .toc a:hover { background: color-mix(in srgb, var(--panel) 70%, var(--accent) 30%); border-color: var(--border); }
     section.card { background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); padding:1.2rem; box-shadow:var(--shadow); scroll-margin-top: 84px; }
-    section.card h2 { margin-top:0; font-size: clamp(1.25rem, 2.5vw, 1.6rem); }
+    section.card h2 { margin-top:0; font-size: clamp(1.25rem, 2.5vw, 1.6rem); display:flex; align-items:center; gap:.5rem; }
     .grid { display:grid; gap:.8rem; }
     .two { grid-template-columns: 1fr 1fr; }
     .three { grid-template-columns: repeat(3, 1fr); }
@@ -48,16 +48,11 @@
     tr:last-child td { border-bottom:none; }
     code, pre { background:var(--code); border:1px solid var(--border); border-radius:10px; padding:.2rem .4rem; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
     pre { padding: .9rem; overflow:auto; }
-    .badge { display:inline-flex; align-items:center; gap:.35rem; padding:.28rem .55rem; border-radius:999px; border:1px solid var(--border); background: color-mix(in srgb, var(--panel) 85%, var(--accent) 15%); font-size:.78rem; }
-    .callout { border-left: 4px solid var(--accent); background: color-mix(in srgb, var(--panel) 92%, var(--accent) 8%); padding: .9rem 1rem; border-radius: 10px; }
-    footer { text-align:center; color:var(--muted); padding: 2rem 0 3rem; }
-    .right { text-align:right; }
-    .muted { color:var(--muted); }
     .pill { display:inline-block; background: color-mix(in srgb, var(--accent-2) 18%, var(--panel)); border:1px solid var(--border); border-radius:999px; padding:.2rem .5rem; font-size:.8rem; }
-    .btn { display:inline-flex; align-items:center; gap:.5rem; background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 90%, white 10%), var(--accent)); color:#001018; border:none; padding:.6rem .9rem; border-radius:12px; text-decoration:none; font-weight:600; box-shadow: 0 6px 16px color-mix(in srgb, var(--accent) 40%, black); }
+    .btn { display:inline-flex; align-items:center; gap:.5rem; background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 90%, white 10%), var(--accent)); color:#001018; border:none; padding:.6rem .9rem; border-radius:12px; text-decoration:none; font-weight:600; box-shadow: 0 6px 16px color-mix(in srgb, var(--accent) 40%, black); cursor:pointer; }
     .btn:hover{ filter:brightness(1.05); }
-    .rule-kv { display:grid; grid-template-columns: 220px 1fr; gap:.6rem .9rem; }
-    @media (max-width: 700px) { .rule-kv { grid-template-columns: 1fr; } }
+    .change-link{display:inline-block;margin-left:.4rem;font-size:.78rem;text-decoration:none;border:1px solid var(--border);padding:.12rem .45rem;border-radius:999px;color:var(--muted);} .change-link:hover{background:color-mix(in srgb,var(--panel) 80%, var(--accent) 20%);color:var(--text);} 
+    .hidden{display:none;}
   </style>
 </head>
 <body>
@@ -65,7 +60,7 @@
     <div class="container hero">
       <div>
         <h1 class="title">BBC v2 — Official Rules</h1>
-        <p class="subtitle">Season: <strong>2025-2026</strong> • Version <span class="pill">1.0</span></p>
+        <p class="subtitle">Season: <strong>2025–2026</strong> • Version <span class="pill">1.0</span></p>
       </div>
       <a class="btn" href="#change-log" title="Skip to change log">Change Log</a>
     </div>
@@ -89,98 +84,94 @@
 
     <main class="grid" style="gap:1.25rem;">
 
-      <section id="overview" class="card">
-        <h2>Overview</h2>
-        <div class="callout">
-          <strong>League Type:</strong> Friends‑only, competitive redraft with modern defaults. Money (if any) handled off‑platform.
-        </div>
-        <div class="rule-kv" style="margin-top:1rem;">
-          <div class="muted">Teams</div><div><strong>12</strong></div>
-          <div class="muted">Platform</div><div><strong>Sleeper</strong> (recommended) • Alternatives: Yahoo, ESPN, Fantrax, NFL Fantasy</div>
-          <div class="muted">Schedule</div><div>Regular Season: NFL Weeks 1–14 • Playoffs: Weeks 15–17</div>
-          <div class="muted">Time Zone</div><div>All deadlines use the commissioner’s local time unless specified</div>
-          <div class="muted">Communication</div><div>Primary in‑app chat + group chat (out‑of‑band)</div>
+      <section id="overview" class="card" data-rule="Overview">
+        <h2>Overview <a class="change-link" data-rule-link href="#">Request Changes</a></h2>
+        <p><strong>League Type:</strong> Friends‑only, competitive redraft with modern defaults. Money (if any) handled off‑platform.</p>
+        <div class="grid two">
+          <div><strong>Teams:</strong> 12</div>
+          <div><strong>Platform:</strong> Sleeper (recommended). Alternatives: Yahoo, ESPN, Fantrax, NFL Fantasy</div>
+          <div><strong>Schedule:</strong> Regular Season: NFL Weeks 1–14 • Playoffs: Weeks 15–17</div>
+          <div><strong>Time Zone:</strong> Commissioner’s local time unless specified</div>
         </div>
       </section>
 
-      <section id="roster" class="card">
-        <h2>Roster Settings</h2>
+      <section id="roster" class="card" data-rule="Roster Settings">
+        <h2>Roster Settings <a class="change-link" data-rule-link href="#">Request Changes</a></h2>
         <table>
           <thead><tr><th>Slot</th><th>Count</th><th>Notes</th></tr></thead>
           <tbody>
-            <tr><td>QB</td><td>1</td><td>Single QB; consider Superflex variant below</td></tr>
-            <tr><td>RB</td><td>2</td><td>Scarcity is a feature</td></tr>
-            <tr><td>WR</td><td>2</td><td>Consider 3 WR if you want deeper starters</td></tr>
-            <tr><td>TE</td><td>1</td><td>TE Premium optional (see variants)</td></tr>
-            <tr><td>FLEX (RB/WR/TE)</td><td>1–2</td><td>Default 1; competitive leagues often run 2</td></tr>
-            <tr><td>K</td><td>1</td><td>Enabled this season</td></tr>
-            <tr><td>DEF/ST</td><td>1</td><td>Enabled this season</td></tr>
-            <tr><td>Bench</td><td>6–7</td><td>Seven recommended for active waivers</td></tr>
-            <tr><td>IR</td><td>0</td><td>Disabled this season</td></tr>
+            <tr data-rule="Roster: QB"><td>QB</td><td>1</td><td>Single QB; consider Superflex variant below <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+            <tr data-rule="Roster: RB"><td>RB</td><td>2</td><td>Scarcity is a feature <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+            <tr data-rule="Roster: WR"><td>WR</td><td>2</td><td>Consider 3 WR if you want deeper starters <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+            <tr data-rule="Roster: TE"><td>TE</td><td>1</td><td>TE Premium optional (see variants) <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+            <tr data-rule="Roster: FLEX"><td>FLEX (RB/WR/TE)</td><td>1</td><td>Single FLEX slot for lineup clarity <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+            <tr data-rule="Roster: K"><td>K</td><td>1</td><td>Enabled this season <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+            <tr data-rule="Roster: DEF/ST"><td>DEF/ST</td><td>1</td><td>Enabled this season <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+            <tr data-rule="Roster: Bench"><td>Bench</td><td>6</td><td>Six bench spots <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+            <tr data-rule="Roster: IR"><td>IR</td><td>0</td><td>Disabled this season <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
           </tbody>
         </table>
       </section>
 
-      <section id="draft" class="card">
-        <h2>Draft</h2>
+      <section id="draft" class="card" data-rule="Draft">
+        <h2>Draft <a class="change-link" data-rule-link href="#">Request Changes</a></h2>
         <ul>
-          <li><strong>Format:</strong> Snake draft (randomized order). Consider Third‑Round Reversal in 12‑team leagues.</li>
-          <li><strong>Clock:</strong> 60–90s per pick in live draft.</li>
-          <li><strong>Keepers:</strong> Off by default. Commissioners may propose keeper rules pre‑season.</li>
-          <li><strong>Dynasty/Taxi:</strong> Not applicable for redraft. If enabled, document separately.</li>
+          <li data-rule="Draft: Format"><strong>Format:</strong> Snake draft. <strong>Draft order determined by Pony Race</strong>. <a class="change-link" data-rule-link href="#">Request Changes</a></li>
+          <li data-rule="Draft: Clock"><strong>Clock:</strong> 90s per pick in live draft. <a class="change-link" data-rule-link href="#">Request Changes</a></li>
+          <li data-rule="Draft: Keepers"><strong>Keepers:</strong> Off by default. Commissioners may propose keeper rules pre‑season. <a class="change-link" data-rule-link href="#">Request Changes</a></li>
+          <li data-rule="Draft: Dynasty"><strong>Dynasty:</strong> <em>Vote to be considered next season</em>. <a class="change-link" data-rule-link href="#">Request Changes</a></li>
         </ul>
       </section>
 
-      <section id="scoring" class="card">
-        <h2>Scoring (PPR Default)</h2>
+      <section id="scoring" class="card" data-rule="Scoring">
+        <h2>Scoring (PPR Default) <a class="change-link" data-rule-link href="#">Request Changes</a></h2>
         <div class="grid two">
           <div>
             <h3>Offense</h3>
             <table>
               <thead><tr><th>Event</th><th>Points</th><th>Notes</th></tr></thead>
               <tbody>
-                <tr><td>Passing Yards</td><td>+0.04 / yd</td><td>1 pt per 25 yards</td></tr>
-                <tr><td>Passing TD</td><td>+4</td><td>Some leagues use +6</td></tr>
-                <tr><td>Interception (thrown)</td><td>−2</td><td>Turnover penalty</td></tr>
-                <tr><td>Rushing Yards</td><td>+0.1 / yd</td><td>1 pt per 10 yards</td></tr>
-                <tr><td>Rushing TD</td><td>+6</td><td>Standard</td></tr>
-                <tr><td>Reception</td><td>+1.0</td><td>Half PPR variant below</td></tr>
-                <tr><td>Receiving Yards</td><td>+0.1 / yd</td><td>1 pt per 10 yards</td></tr>
-                <tr><td>Receiving TD</td><td>+6</td><td>Standard</td></tr>
-                <tr><td>Fumble Lost</td><td>−2</td><td>Ball security matters</td></tr>
-                <tr><td>Two‑Point Conversion</td><td>+2</td><td>Pass, rush, or catch</td></tr>
+                <tr data-rule="Scoring: Passing Yards"><td>Passing Yards</td><td>+0.04 / yd</td><td>1 pt per 25 yards <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+                <tr data-rule="Scoring: Passing TD"><td>Passing TD</td><td>+4</td><td>Some leagues use +6 <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+                <tr data-rule="Scoring: Interception"><td>Interception (thrown)</td><td>−2</td><td>Turnover penalty <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+                <tr data-rule="Scoring: Rushing Yards"><td>Rushing Yards</td><td>+0.1 / yd</td><td>1 pt per 10 yards <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+                <tr data-rule="Scoring: Rushing TD"><td>Rushing TD</td><td>+6</td><td>Standard <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+                <tr data-rule="Scoring: Reception"><td>Reception</td><td>+1.0</td><td>Half‑PPR variant available <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+                <tr data-rule="Scoring: Receiving Yards"><td>Receiving Yards</td><td>+0.1 / yd</td><td>1 pt per 10 yards <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+                <tr data-rule="Scoring: Receiving TD"><td>Receiving TD</td><td>+6</td><td>Standard <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+                <tr data-rule="Scoring: Fumble Lost"><td>Fumble Lost</td><td>−2</td><td>Ball security matters <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+                <tr data-rule="Scoring: Two‑Point Conversion"><td>Two‑Point Conversion</td><td>+2</td><td>Pass, rush, or catch <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
               </tbody>
             </table>
           </div>
           <div>
             <h3>Half‑PPR Adjustments</h3>
             <ul>
-              <li>Reception: <strong>+0.5</strong> instead of +1.0.</li>
-              <li>Optional: Increase receiving yards to 1.1x if you want WRs to retain value.</li>
+              <li data-rule="Scoring: Half‑PPR Reception">Reception: <strong>+0.5</strong> instead of +1.0. <a class="change-link" data-rule-link href="#">Request Changes</a></li>
             </ul>
             <h3 style="margin-top:1rem;">Bonuses (Optional)</h3>
             <ul>
-              <li>100+ Rush/Rec yards: +3 bonus</li>
-              <li>300+ Passing yards: +3 bonus</li>
-              <li>40+ yard TD (any): +1 bonus</li>
+              <li data-rule="Scoring Bonus: 100+ Yards">100+ Rush/Rec yards: +3 bonus <a class="change-link" data-rule-link href="#">Request Changes</a></li>
+              <li data-rule="Scoring Bonus: 300+ Pass Yards">300+ Passing yards: +3 bonus <a class="change-link" data-rule-link href="#">Request Changes</a></li>
+              <li data-rule="Scoring Bonus: 40+ Yard TD">40+ yard TD (any): +1 bonus <a class="change-link" data-rule-link href="#">Request Changes</a></li>
             </ul>
           </div>
         </div>
       </section>
 
-      <section id="kickers-defense" class="card">
-        <h2>Kickers & Defense (if enabled)</h2>
+      <section id="kickers-defense" class="card" data-rule="Kickers & Defense">
+        <h2>Kickers & Defense (enabled) <a class="change-link" data-rule-link href="#">Request Changes</a></h2>
         <div class="grid two">
           <div>
             <h3>Kickers</h3>
             <table>
               <thead><tr><th>Event</th><th>Points</th></tr></thead>
               <tbody>
-                <tr><td>FG 0–39 yds</td><td>+3</td></tr>
-                <tr><td>FG 40–49 yds</td><td>+4</td></tr>
-                <tr><td>FG 50+ yds</td><td>+5</td></tr>
-                <tr><td>PAT made</td><td>+1</td></tr>
-                <tr><td>Missed FG or PAT</td><td>−1</td></tr>
+                <tr data-rule="Kicker: FG 0–39"><td>FG 0–39 yds</td><td>+3 <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+                <tr data-rule="Kicker: FG 40–49"><td>FG 40–49 yds</td><td>+4 <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+                <tr data-rule="Kicker: FG 50+"><td>FG 50+ yds</td><td>+5 <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+                <tr data-rule="Kicker: PAT made"><td>PAT made</td><td>+1 <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+                <tr data-rule="Kicker: Missed FG/PAT"><td>Missed FG or PAT</td><td>−1 <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
               </tbody>
             </table>
           </div>
@@ -189,93 +180,96 @@
             <table>
               <thead><tr><th>Event</th><th>Points</th></tr></thead>
               <tbody>
-                <tr><td>Points Allowed: 0</td><td>+10</td></tr>
-                <tr><td>1–6</td><td>+7</td></tr>
-                <tr><td>7–13</td><td>+4</td></tr>
-                <tr><td>14–20</td><td>+1</td></tr>
-                <tr><td>21–27</td><td>0</td></tr>
-                <tr><td>28–34</td><td>−1</td></tr>
-                <tr><td>35+</td><td>−3</td></tr>
-                <tr><td>Sack</td><td>+1</td></tr>
-                <tr><td>Interception / Fumble Recovery</td><td>+2</td></tr>
-                <tr><td>Def/ST TD</td><td>+6</td></tr>
-                <tr><td>Safety</td><td>+2</td></tr>
+                <tr data-rule="DEF: Points Allowed 0"><td>Points Allowed: 0</td><td>+10 <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+                <tr data-rule="DEF: Points Allowed 1–6"><td>1–6</td><td>+7 <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+                <tr data-rule="DEF: Points Allowed 7–13"><td>7–13</td><td>+4 <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+                <tr data-rule="DEF: Points Allowed 14–20"><td>14–20</td><td>+1 <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+                <tr data-rule="DEF: Points Allowed 21–27"><td>21–27</td><td>0 <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+                <tr data-rule="DEF: Points Allowed 28–34"><td>28–34</td><td>−1 <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+                <tr data-rule="DEF: Points Allowed 35+"><td>35+</td><td>−3 <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+                <tr data-rule="DEF: Sack"><td>Sack</td><td>+1 <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+                <tr data-rule="DEF: Takeaway"><td>Interception / Fumble Recovery</td><td>+2 <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+                <tr data-rule="DEF: TD"><td>Def/ST TD</td><td>+6 <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
+                <tr data-rule="DEF: Safety"><td>Safety</td><td>+2 <a class="change-link" data-rule-link href="#">Request Changes</a></td></tr>
               </tbody>
             </table>
           </div>
         </div>
-        <p class="muted" style="margin-top:.6rem;">Competitive leagues often remove K and DEF/ST entirely and replace them with another FLEX.</p>
       </section>
 
-      <section id="waivers" class="card">
-        <h2>Waivers & Transactions</h2>
+      <section id="waivers" class="card" data-rule="Waivers & Transactions">
+        <h2>Waivers & Transactions <a class="change-link" data-rule-link href="#">Request Changes</a></h2>
         <ul>
-          <li><strong>Waiver Type:</strong> FAAB (Free Agent Acquisition Budget)</li>
-          <li><strong>Budget:</strong> $200 (virtual). Bids are blind; highest bid wins. $0 bids allowed.</li>
-          <li><strong>Processing:</strong> Primary run: <em>Wednesday 10:00 AM</em>. Secondary runs daily at 10:00 AM for dropped players.</li>
-          <li><strong>Add/Drop:</strong> Continuous waivers during the week; post‑waiver players become free agents until game lock.</li>
-          <li><strong>Trades:</strong> Deadline at NFL Week 11 end. Review by commissioner; veto for collusion only.</li>
-          <li><strong>IR:</strong> Disabled for the 2025–2026 season.</li>
+          <li data-rule="Waivers: Type"><strong>Waiver Type:</strong> FAAB (Free Agent Acquisition Budget). <a class="change-link" data-rule-link href="#">Request Changes</a></li>
+          <li data-rule="Waivers: Budget"><strong>Budget:</strong> $200 (virtual). Bids are blind; highest bid wins. $0 bids allowed. <a class="change-link" data-rule-link href="#">Request Changes</a></li>
+          <li data-rule="Waivers: Processing"><strong>Processing:</strong> Primary run: <em>Wednesday 10:00 AM</em>. Secondary runs daily at 10:00 AM for dropped players. <a class="change-link" data-rule-link href="#">Request Changes</a></li>
+          <li data-rule="Waivers: Adds"><strong>Add/Drop:</strong> Continuous waivers during the week; post‑waiver players become free agents until game lock. <a class="change-link" data-rule-link href="#">Request Changes</a></li>
+          <li data-rule="Trades: Deadline"><strong>Trades:</strong> Deadline at NFL Week 11 end. Review by commissioner; veto for collusion only. <a class="change-link" data-rule-link href="#">Request Changes</a></li>
+          <li data-rule="IR: Eligibility"><strong>IR:</strong> Disabled for the 2025–2026 season. <a class="change-link" data-rule-link href="#">Request Changes</a></li>
         </ul>
       </section>
 
-      <section id="playoffs" class="card">
-        <h2>Playoffs</h2>
+      <section id="playoffs" class="card" data-rule="Playoffs">
+        <h2>Playoffs <a class="change-link" data-rule-link href="#">Request Changes</a></h2>
         <ul>
-          <li><strong>Teams:</strong> 6 of 12 qualify (Seeds 1–6)</li>
-          <li><strong>Byes:</strong> Top 2 seeds receive first‑round byes</li>
-          <li><strong>Weeks:</strong> NFL Weeks 15–17</li>
-          <li><strong>Seeding:</strong> Record → Points For → Head‑to‑Head</li>
-          <li><strong>Toilet Bowl:</strong> Optional consolation bracket for non‑playoff teams</li>
-          <li><strong>Scheduling:</strong> No Week 18 matchups (rest risks)</li>
+          <li data-rule="Playoffs: Teams"><strong>Teams:</strong> 6 of 12 qualify (Seeds 1–6) <a class="change-link" data-rule-link href="#">Request Changes</a></li>
+          <li data-rule="Playoffs: Byes"><strong>Byes:</strong> Top 2 seeds receive first‑round byes <a class="change-link" data-rule-link href="#">Request Changes</a></li>
+          <li data-rule="Playoffs: Weeks"><strong>Weeks:</strong> NFL Weeks 15–17 <a class="change-link" data-rule-link href="#">Request Changes</a></li>
+          <li data-rule="Playoffs: Seeding"><strong>Seeding:</strong> Record → Points For → Head‑to‑Head <a class="change-link" data-rule-link href="#">Request Changes</a></li>
+          <li data-rule="Playoffs: Toilet Bowl"><strong>Toilet Bowl:</strong> Optional consolation bracket for non‑playoff teams <a class="change-link" data-rule-link href="#">Request Changes</a></li>
         </ul>
       </section>
 
-      <section id="policies" class="card">
-        <h2>League Policies</h2>
+      <section id="policies" class="card" data-rule="League Policies">
+        <h2>League Policies <a class="change-link" data-rule-link href="#">Request Changes</a></h2>
         <ul>
-          <li><strong>Sportsmanship:</strong> Trash talk encouraged within reason; hate speech and personal attacks are not tolerated.</li>
-          <li><strong>Lineup Deadlines:</strong> Player spots lock at individual game kickoff.</li>
-          <li><strong>Inactive Managers:</strong> Commissioner may set a fair lineup if two consecutive weeks are neglected.</li>
-          <li><strong>Rule Changes:</strong> Off‑season voting, simple majority unless otherwise stated. In‑season changes require 2/3 and cannot affect prior results.</li>
-          <li><strong>Money:</strong> Any buy‑ins/payouts handled off‑platform between members.</li>
-          <li><strong>Ties:</strong> Regular season ties stand. Playoff ties broken by bench points, then higher seed.</li>
+          <li data-rule="Policy: Sportsmanship"><strong>Sportsmanship:</strong> Trash talk encouraged; hate speech/personal attacks prohibited. <a class="change-link" data-rule-link href="#">Request Changes</a></li>
+          <li data-rule="Policy: Lineup Deadlines"><strong>Lineup Deadlines:</strong> Player spots lock at individual game kickoff. <a class="change-link" data-rule-link href="#">Request Changes</a></li>
+          <li data-rule="Policy: Inactive Managers"><strong>Inactive Managers:</strong> Commish may set a fair lineup if two consecutive weeks are neglected. <a class="change-link" data-rule-link href="#">Request Changes</a></li>
+          <li data-rule="Policy: Rule Changes"><strong>Rule Changes:</strong> Off‑season voting, simple majority unless stated. In‑season changes require 2/3 and cannot affect prior results. <a class="change-link" data-rule-link href="#">Request Changes</a></li>
+          <li data-rule="Policy: Money"><strong>Money:</strong> Any buy‑ins/payouts handled off‑platform between members. <a class="change-link" data-rule-link href="#">Request Changes</a></li>
+          <li data-rule="Policy: Ties"><strong>Ties:</strong> Regular season ties stand. Playoff ties: bench points, then higher seed. <a class="change-link" data-rule-link href="#">Request Changes</a></li>
         </ul>
       </section>
 
-      <section id="variants" class="card">
-        <h2>Optional Variants (Commissioner Picks)</h2>
+      <section id="variants" class="card" data-rule="Optional Variants">
+        <h2>Optional Variants (Commissioner Picks) <a class="change-link" data-rule-link href="#">Request Changes</a></h2>
         <div class="grid two">
           <div>
             <h3>Superflex</h3>
-            <p>Replace one FLEX with a <strong>Superflex (QB/RB/WR/TE)</strong> to increase QB value and draft diversity.</p>
+            <p data-rule="Variant: Superflex">Replace one FLEX with a <strong>Superflex (QB/RB/WR/TE)</strong> to increase QB value and draft diversity. <a class="change-link" data-rule-link href="#">Request Changes</a></p>
             <h3>TE Premium</h3>
-            <p>Set <strong>TE receptions = +1.5</strong> (others remain at +1.0) to elevate mid‑tier TEs.</p>
+            <p data-rule="Variant: TE Premium">Set <strong>TE receptions = +1.5</strong> (others at +1.0) to elevate mid‑tier TEs. <a class="change-link" data-rule-link href="#">Request Changes</a></p>
             <h3>No K / No DEF</h3>
-            <p>Remove both and add <strong>+1 FLEX</strong> (or two) for more skill‑position strategy.</p>
+            <p data-rule="Variant: No K/No DEF">Remove both and add <strong>+1 FLEX</strong> for more skill‑position strategy. <a class="change-link" data-rule-link href="#">Request Changes</a></p>
           </div>
           <div>
             <h3>Bonuses</h3>
             <ul>
-              <li>100+ rush/rec yards: +3</li>
-              <li>300+ pass yards: +3</li>
-              <li>40+ yard TD: +1</li>
+              <li data-rule="Variant Bonus: 100+ yards">100+ rush/rec yards: +3 <a class="change-link" data-rule-link href="#">Request Changes</a></li>
+              <li data-rule="Variant Bonus: 300+ pass yards">300+ pass yards: +3 <a class="change-link" data-rule-link href="#">Request Changes</a></li>
+              <li data-rule="Variant Bonus: 40+ TD">40+ yard TD: +1 <a class="change-link" data-rule-link href="#">Request Changes</a></li>
             </ul>
-            <h3>Third‑Round Reversal</h3>
-            <p>For 12+ teams, consider TRR to balance early draft position edge.</p>
+            <h3>Waiver Order Variants</h3>
+            <ul>
+              <li data-rule="Variant Waivers: ESPN Last Pick First"><strong>ESPN‑style Last Pick First (Week 1):</strong> Initial waiver priority is reverse of draft order. <a class="change-link" data-rule-link href="#">Request Changes</a></li>
+              <li data-rule="Variant Waivers: Rolling List"><strong>Continual Rolling List:</strong> After a successful claim, that manager moves to the end of the list. <a class="change-link" data-rule-link href="#">Request Changes</a></li>
+              <li data-rule="Variant Waivers: Weekly Reset"><strong>Worst‑to‑First Weekly Reset:</strong> Waiver priority resets weekly based on current standings. <a class="change-link" data-rule-link href="#">Request Changes</a></li>
+            </ul>
           </div>
         </div>
       </section>
 
       <section id="import" class="card">
-        <h2>One‑Page Import Summary</h2>
-        <p class="muted">Use this for quick setup on Sleeper/Yahoo/ESPN.</p>
+        <h2>One‑Page Import Summary <span class="pill">(Commish Only)</span></h2>
+        <button class="btn" id="toggle-import" type="button">Show Import Summary</button>
+        <div id="import-content" class="hidden" style="margin-top:0.8rem;">
 <pre><code>{
   "teams": 12,
   "schedule": { "regular_weeks": "1-14", "playoffs": "15-17" },
   "roster": {
     "QB": 1, "RB": 2, "WR": 2, "TE": 1,
-    "FLEX": 2, "K": 1, "DEF": 1, "BENCH": 7, "IR": 0
+    "FLEX": 1, "K": 1, "DEF": 1, "BENCH": 6, "IR": 0
   },
   "scoring": {
     "ppr": 1.0,
@@ -297,14 +291,15 @@
   "playoffs": { "teams": 6, "byes": 2, "toilet_bowl": true }
 }
 </code></pre>
+        </div>
       </section>
 
       <section id="change-log" class="card">
         <h2>Change Log</h2>
         <ul>
           <li><strong>2025‑08‑10:</strong> Initial ruleset published.</li>
+          <li><strong>2025‑08‑10:</strong> FLEX set to 1; Bench set to 6; Draft order set to Pony Race; Draft clock 90s; Dynasty marked for next‑season vote; Added Waiver Order Variants; Import Summary hidden (toggle); Added “Request Changes” links adjacent to rules; Google Form link wiring.</li>
         </ul>
-        <p class="muted">Edit the placeholders <code>BBC v2</code>, <code>2025-2026</code>, and <code>1.0</code> in the &lt;title&gt; and header.</p>
       </section>
 
     </main>
@@ -317,12 +312,11 @@
   </footer>
 
   <script>
-    // Lightweight UX niceties
+    // Set year
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // Smooth scroll for internal links
-    const links = document.querySelectorAll('a[href^="#"]');
-    for (const a of links) {
+    for (const a of document.querySelectorAll('a[href^="#"]')) {
       a.addEventListener('click', (e) => {
         const id = a.getAttribute('href').slice(1);
         const el = document.getElementById(id);
@@ -333,6 +327,29 @@
         }
       });
     }
+
+    // Toggle Import Summary
+    const toggleBtn = document.getElementById('toggle-import');
+    const importContent = document.getElementById('import-content');
+    if (toggleBtn && importContent) {
+      toggleBtn.addEventListener('click', () => {
+        const hidden = importContent.classList.toggle('hidden');
+        toggleBtn.textContent = hidden ? 'Show Import Summary' : 'Hide Import Summary';
+      });
+    }
+
+    // Wire up Request Changes links to Google Form with rule prefill via query param
+    const FORM_URL = 'https://forms.gle/kBg9DWo8D4HimUY67';
+    function setRuleLink(el, ruleName){
+      el.setAttribute('href', FORM_URL + '?rule=' + encodeURIComponent(ruleName));
+      el.setAttribute('target', '_blank');
+      el.setAttribute('rel', 'noopener');
+    }
+    document.querySelectorAll('[data-rule-link]').forEach(link => {
+      const container = link.closest('[data-rule]') || link.parentElement;
+      const ruleName = container?.getAttribute('data-rule') || link.textContent.trim() || 'Unnamed Rule';
+      setRuleLink(link, ruleName);
+    });
   </script>
 </body>
 </html>
